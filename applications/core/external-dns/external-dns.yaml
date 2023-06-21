@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    chart: external-dns
+    repoURL: https://kubernetes-sigs.github.io/external-dns/
+    targetRevision: 1.13.0
+    helm:
+      releaseName: external-dns
+      values: |
+        provider: cloudflare
+        env:
+        - name: CF_API_EMAIL
+          value: cloudnativerioja@gmail.com
+        - name: CF_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: api-key
+              name: cloudflare-api-key
+        interval: 5m
+        policy: sync
+        txtOwnerId: cloudnativerioja
+        txtPrefix: cloudnativerioja.
+        logLevel: debug
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: core-apps
