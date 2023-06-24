@@ -17,6 +17,7 @@ La estructura de carpetas es la siguiente:
 │   └── core
 │       ├── cert-manager
 │       │   ├── cert-manager.yaml
+│       │   ├── cloudflare-api-token.yaml
 │       │   └── clusterissuer.yaml
 │       ├── env-test.yaml
 │       ├── external-dns
