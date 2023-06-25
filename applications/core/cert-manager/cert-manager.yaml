@@ -1,0 +1,35 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    chart: cert-manager
+    repoURL: https://charts.jetstack.io
+    targetRevision: 1.12.2
+    helm:
+      releaseName: cert-manager
+      values: |
+        installCRDs: true
+        prometheus:
+          enabled: false
+        serviceAccount:
+          ingressShim:
+            defaultIssuerName: letsencrypt-prod
+            defaultIssuerKind: ClusterIssuer
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: core-apps
