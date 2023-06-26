@@ -3,12 +3,13 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: cloudflare-api-key
-  namespace: argocd
+  namespace: core-apps
 spec:
   encryptedData:
-    api-key: AgCRNCIbZIy3/GVhN8UYQ2aaSi+qaEBaGpABbt8yexuBqmCwi2ZtO4WOyTCfN+0a0VPw9q1VdUZHFpFFHKM2u2MecoOQxZCd8v614Ofm4tWSsUj5cWwSXhakLcAkRPQ59Ag++8VuCyBrnmWlOXOpo1QPx7xG5p1BhQ1WUWygUQ1iOie3JsBoVR5PIgYWfF2yqmsQtRo1GtZS/9Ooscb2r9v+UWXlS3exkKskUbaa2mkxgWglmwzA2rnkiBylVKmhgBi3cNdbMh3bu0H8FLav8rj4EQQivjsip1S4oZZ9RUh/z5nmCR3liaZsFsyT/GkZB1mb6nFMTKmBeMg/NasjTEZpcf0IKLAnq+cygKwOfFW3lhdQrecUzaYg6aZrG3HI0K0AAoScwX79XvTOqtUD8vT+LmNBLt7QTLiTp0kxGMpk3rpf/+G2C1HwU5DZW1aPcBtj7XH5D3+VBpOMMzY8yFf2hKhleyiS4V+aH9/+MsQ0UId2G0mk9fZJHcdXHTjZqVQ1CgvcUa+dlNxFdgVsfJePOm4APteYVQUHAWuVAusgEICAdL2M1HF1bLatXX3CV7N0jjQZ3GBtBA5a9K4en5FUrIoEa155qlBpcmylj6WWU52ekVyPif4W5ZEFrLW5ANRzI6GW2i9KPXrcByhAQTh6mvNDRZORGazvpUUNzck4To7sE3yOPjI0IQCNfx0TEqDLJW8/k9dpDF24nmFA5JeJ+1uaKhHCNK7NuQvwI2F9Elax3a8/9C1u # yamllint disable-line rule:line-length
+    api-key: AgAHmtO21hg7CJQndhzFoFDgyFOiHnhXGfjnIP9tSpFKNa1RIOBCpE6hMcXyFgFAS0+yqgmfuWpbMMOSKSgAqmYteZVMyIXiwFzpN9tTzZ0eq2/xiE3zo/IWwT/7x8Wx+1aYxzC3K77CFl26ZcLOTuTSnoANd5no3gVf+OmJH94FV/OlgjbET/QGHqvhNvOH58TVuyKkvoJmOVQiPrlQQJQ5tvbAnvMP+lFgWtVconps3tNBKd966ysTYSjTaKtkp/Jjq4DMqh6M8OkPI11yimHeRDUk16RP/mBU6gd6i748wtqomvmwrzd9RGgwWrQ7xp1w7kvSzyTa8vxBQfK7eF6Pb1ybh1XyJAO3Tq4/7HKbKgjqbngiqf0QB2XGoGiwMb3U2hhXZ6cJ85mtTdzZ0O+wqevlrsW5BoKPP8sio/dFoqL57YbxkDm5Udrbpjsso5i5+ByjkSE1yhOZvKXmLrmLGs9v0O+KzaHWZmBCBw/Q0fn8SrLLlxIXoqzfM7Ggn4UCZFcRzDOE67hXNN7c8y7xz5hrD2Zu5N8eYf0TAh5Ojr2uGpI3/Z8thBw17xooc0gZYGUl84g19X3c/zpc/e1bSbEFVKi/5RvZkCNxdJUGhBdNPu818HvklJZ4v95c8tCMVYilai/UAdwJAy7/t3cfvC2+afVnQmdV0QHa2gnq8hByFWgqenk9xNSbDBd5Vd1dEmpl2IuHCeMBUZGs3ESosw/19G6d3W09H/tMg3EYkH8k6nah # yamllint disable-line rule:line-length
   template:
     metadata:
       creationTimestamp: null
       name: cloudflare-api-key
-      namespace: argocd
+      namespace: core-apps
+    type: Opaque
