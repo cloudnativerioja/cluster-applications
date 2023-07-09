@@ -1,0 +1,43 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns-civo
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    chart: external-dns
+    repoURL: https://kubernetes-sigs.github.io/external-dns/
+    targetRevision: 1.13.0
+    helm:
+      releaseName: external-dns
+      values: |
+        provider: civo
+        env:
+        - name: CIVO_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: civo-api-token
+              name: civo-api-token
+        interval: 5m
+        policy: sync
+        txtOwnerId: cloudnativerioja
+        txtPrefix: cloudnativerioja.
+        logLevel: debug
+        domainFilters: [cluster.cloudnativerioja.es]
+        sources:
+        - ingress
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: core-apps

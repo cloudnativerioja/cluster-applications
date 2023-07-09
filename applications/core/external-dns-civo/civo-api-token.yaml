@@ -1,0 +1,15 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: civo-api-token
+  namespace: core-apps
+spec:
+  encryptedData:
+    civo-api-token: AgAIX/t3tm/CpurAOQHT3TmqNBvKhI6z42FRpEqBxf+hl7dFdKg2cuBiaNMNb7l/aPS4PLlEc5BTsE5sPdApaf1jXh0oeNq07TBjrdlzyazp+VaexaBCIVRiO0LgbybWquLPUYhqXd/lZllRglDsRFqlva4nnDiMRSk9XjW62m0UnDDFRpIj8s+A8ys8AD/oJ/RaeqgqO+TJK/h1skzajLlpHwVg8scLt/V4OhDB+k6NbnpseEgNjmPnZ2M+yeGoH7i3fUG/VTKmd1+BnqRPq/YCP7whnJkux9Df+3kBZUvFc7ZVx6/MzxFIDmLAxomQ2pe4W8zYpKLUu/lTS+0t05subVNDkD1YKpx6/mUtdhAHa9osy6iUQUtO/dpeWZF9FjAWOTK5HPiAyY7LhfZKOJ+oxFRy+AY+vRLoOnx8+iFWjCNkN/gqB78CD0aHwCKwNVdUecu1HGCMiumLieGj3b6zwwDxj5ggBE+qUrW5IPnHbAeEEKv0yoKRlsh165WYwzcYrBqK6jfur8dtooEPPELa5Xl55IwktdHfowaxVT6C0Li57rCzWiHN5m1/8OBgL2yOnWIhGMKFD+cgQNsfSJMEcbzjdjMlpOZRfDMNOnygyZiQEM1Rb3sfCudYvHfdYB5B4o6ixbv5/V54rrg15J9f4rFrw8VoWLMvNiaMs2k0/rS9DQm1foNVx+Jio7V0QqJJA3jeeAxa9euhOzGizSt2fPG4UQsurgBan5fCmB6D51SHKaY1GmNU/w66T3NE0kIljQ== # yamllint disable-line rule:line-length
+  template:
+    metadata:
+      creationTimestamp: null
+      name: civo-api-token
+      namespace: core-apps
+    type: Opaque
