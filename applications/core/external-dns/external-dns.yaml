@@ -21,7 +21,7 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/external-dns/
     targetRevision: 1.13.0
     helm:
-      releaseName: external-dns
+      releaseName: external-dns-cloudflare
       values: |
         provider: cloudflare
         env:
