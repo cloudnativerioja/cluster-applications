@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -48,7 +49,7 @@ spec:
             # -- List of ingress paths
             paths:
               - /
-            # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
+            # -- Ingress path type.
             pathType: Prefix
             # -- Additional ingress paths
             extraPaths:
