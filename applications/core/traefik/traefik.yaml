@@ -31,6 +31,27 @@ spec:
         logs:
           general:
             level: INFO
+        providers:
+          kubernetesCRD:
+            # -- Load Kubernetes IngressRoute provider
+            enabled: true
+            allowCrossNamespace: true
+            # -- Allows to reference ExternalName services in IngressRoute
+            allowExternalNameServices: true
+            # -- Allows to return 503 when there is no endpoints available
+            allowEmptyServices: true
+            # ingressClass: traefik-internal
+            # labelSelector: environment=production,method=traefik
+            namespaces: []
+              # - "default"
+
+          kubernetesIngress:
+            # -- Load Kubernetes IngressRoute provider
+            enabled: true
+            # -- Allows to reference ExternalName services in Ingress
+            allowExternalNameServices: true
+            # -- Allows to return 503 when there is no endpoints available
+            allowEmptyServices: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
