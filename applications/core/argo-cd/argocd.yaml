@@ -23,6 +23,8 @@ spec:
     helm:
       releaseName: argocd
       values: |
+        params:
+          server.insecure: true
         ## Server
         server:
           service:
