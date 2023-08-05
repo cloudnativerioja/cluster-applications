@@ -25,6 +25,12 @@ spec:
       values: |
         deployment:
           kind: DaemonSet
+        api:
+          dashboard: true
+          insecure: true
+        logs:
+          general:
+            level: DEBUG
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
