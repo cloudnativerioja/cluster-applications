@@ -35,7 +35,6 @@ spec:
           kubernetesCRD:
             # -- Load Kubernetes IngressRoute provider
             enabled: true
-            # -- Allows IngressRoute to reference resources in namespace other than theirs
             allowCrossNamespace: true
             # -- Allows to reference ExternalName services in IngressRoute
             allowExternalNameServices: true
@@ -43,7 +42,6 @@ spec:
             allowEmptyServices: true
             # ingressClass: traefik-internal
             # labelSelector: environment=production,method=traefik
-            # -- Array of namespaces to watch. If left empty, Traefik watches all namespaces.
             namespaces: []
               # - "default"
 
