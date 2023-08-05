@@ -18,7 +18,7 @@ spec:
         factor: 2
   source:
     chart: traefik
-    repoURL: https://traefik.github.io/traefik-helm-chart
+    repoURL: https://traefik.github.io/charts
     targetRevision: 23.2.0
     helm:
       releaseName: traefik
