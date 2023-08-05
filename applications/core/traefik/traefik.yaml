@@ -30,7 +30,7 @@ spec:
           insecure: true
         logs:
           general:
-            level: DEBUG
+            level: INFO
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
