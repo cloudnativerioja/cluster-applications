@@ -23,6 +23,9 @@ spec:
     helm:
       releaseName: argocd
       values: |
+        configs:
+          params:
+            server.insecure: true
         server:
           ingress:
             # -- Enable an ingress resource for the Argo CD server
