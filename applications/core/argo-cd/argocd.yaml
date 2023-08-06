@@ -31,7 +31,7 @@ spec:
             cert-manager.io/cluster-issuer: "letsencrypt-prod"
             kubernetes.io/ingress.class: traefik
             traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-            traefik.ingress.kubernetes.io/router.tls: "true" 
+            traefik.ingress.kubernetes.io/router.tls: "true"
           # -- Additional ingress labels
           labels: {}
           # -- Defines which ingress controller will implement the resource
