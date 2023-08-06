@@ -52,10 +52,8 @@ spec:
             allowExternalNameServices: true
             # -- Allows to return 503 when there is no endpoints available
             allowEmptyServices: true
-        sources:
-          - service
-          - ingress
-          - ingressroute
+            publishedService:
+              enabled: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
