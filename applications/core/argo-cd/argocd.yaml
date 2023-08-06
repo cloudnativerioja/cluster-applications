@@ -37,10 +37,6 @@ spec:
             labels: {}
             # -- Defines which ingress controller will implement the resource
             ingressClassName: ""
-            # -- List of ingress hosts
-            ## Argo Ingress.
-            ## Hostnames must be provided if Ingress is enabled.
-            ## Secrets must be manually created in the namespace
             hosts:
               - argo.cloudnativerioja.com
               # - argocd.example.com
@@ -51,23 +47,19 @@ spec:
             pathType: Prefix
             # -- Additional ingress paths
             extraPaths:
-              []
-              # - path: /*
-              #   pathType: Prefix
-              #   backend:
-              #     service:
-              #       name: ssl-redirect
-              #       port:
-              #         name: use-annotation
+              - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: argocd-server
+                  port:
+                    number: 443
             # -- Ingress TLS configuration
             tls:
               - hosts:
                   - argo.cloudnativerioja.com
                 secretName: tls-argo-cloudnativerioja-com
-              # - secretName: your-certificate-name
-              #   hosts:
-              #     - argocd.example.com
-            https: false
+            https: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
