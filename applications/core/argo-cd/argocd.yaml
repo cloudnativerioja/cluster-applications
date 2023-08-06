@@ -48,18 +48,18 @@ spec:
             # -- Additional ingress paths
             extraPaths:
               - path: /
-              pathType: Prefix
-              backend:
-                service:
-                  name: argocd-server
-                  port:
-                    number: 443
+                pathType: Prefix
+                backend:
+                  service:
+                    name: argocd-server
+                    port:
+                      number: 443
             # -- Ingress TLS configuration
             tls:
               - hosts:
                   - argo.cloudnativerioja.com
                 secretName: tls-argo-cloudnativerioja-com
-            https: true
+            https: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
