@@ -37,10 +37,6 @@ spec:
         txtOwnerId: cloudnativerioja
         txtPrefix: cloudnativerioja.
         logLevel: debug
-        sources:
-          - service
-          - ingress
-          - crd
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
