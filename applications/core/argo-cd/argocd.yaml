@@ -26,6 +26,7 @@ spec:
         configs:
           cm:
             url: https://argo.cloudnativerioja.com
+            admin.enabled: false
             # Dex configuration
             dex.config: |
               connectors:
