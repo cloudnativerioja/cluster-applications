@@ -25,6 +25,7 @@ spec:
       values: |
         configs:
           cm:
+            url: https://argo.cloudnativerioja.com
             # Dex configuration
             dex.config: |
               connectors:
