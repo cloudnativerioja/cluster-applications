@@ -24,6 +24,23 @@ spec:
       releaseName: argocd
       values: |
         configs:
+          cm:
+            # Dex configuration
+            dex.config: |
+              connectors:
+                # GitHub example
+                - type: github
+                  id: github
+                  name: GitHub
+                  config:
+                    clientID: d5576c72f49362ec354c
+                    clientSecret: $sso-secret:dex.github.clientSecret
+                    orgs:
+                    - name: cloudnativerioja
+          rbac:
+            policy.default: role:readonly
+            policy.csv: |
+              g, cloudnativerioja:Organizers, role:org-admin
           params:
             server.insecure: true
         server:
