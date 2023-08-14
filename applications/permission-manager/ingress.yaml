@@ -17,7 +17,7 @@ spec:
               service:
                 name: permission-manager
                 port:
-                  number: 80
+                  number: 4000
             path: /
             pathType: Prefix
   tls:
