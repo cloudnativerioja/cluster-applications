@@ -19,7 +19,7 @@ spec:
   sources:
     - repoURL: registry-1.docker.io/cloudnativerioja
       targetRevision: 0.0.24
-      chart: chart-official-website
+      chart: official-website
       helm:
         values: |
           ingress:
