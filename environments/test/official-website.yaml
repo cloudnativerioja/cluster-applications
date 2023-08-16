@@ -1,0 +1,43 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-official-website
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  sources:
+    - repoURL: registry-1.docker.io/cloudnativerioja
+      targetRevision: 0.0.24
+      chart: chart-official-website
+      helm:
+        values: |
+          ingress:
+            enabled: true
+            className: ''
+            annotations:
+              cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+              kubernetes.io/ingress.class: traefik
+              traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+            hosts:
+              - host: test-official-website.cloudnativerioja.com
+                paths:
+                  - path: /
+                    pathType: ImplementationSpecific
+            tls:
+              - secretName: test-official-website-tls
+                hosts:
+                  - test.official.website.cloudnativerioja.com
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: test
