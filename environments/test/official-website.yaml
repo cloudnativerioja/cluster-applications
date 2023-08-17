@@ -30,7 +30,7 @@ spec:
               kubernetes.io/ingress.class: traefik
               traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
             hosts:
-              - host: test-official-website.cloudnativerioja.com
+              - host: test.official.website.cloudnativerioja.com
                 paths:
                   - path: /
                     pathType: ImplementationSpecific
