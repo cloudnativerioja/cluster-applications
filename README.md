@@ -29,7 +29,8 @@ La estructura de carpetas es la siguiente:
 │   ├── staging
 │   │   └── namespace.yaml
 │   └── test
-│       └── namespace.yaml
+│       │── namespace.yaml
+│       └── official-website.yaml
 └── README.md
 ```
 
