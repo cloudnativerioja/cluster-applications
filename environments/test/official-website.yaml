@@ -18,7 +18,7 @@ spec:
         factor: 2
   sources:
     - repoURL: registry-1.docker.io/cloudnativerioja
-      targetRevision: 0.0.25
+      targetRevision: 0.0.26
       chart: chart-official-website
       helm:
         values: |
