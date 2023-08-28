@@ -19,6 +19,32 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 48.4.0
     chart: kube-prometheus-stack
+    helm:
+      values: |
+        prometheus:
+          resources:
+            requests:
+              cpu: 400m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+        grafana:
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+        prometheus-node-exporter:
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 400m
+              memory: 256Mi
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
