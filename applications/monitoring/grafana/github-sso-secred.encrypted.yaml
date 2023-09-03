@@ -1,0 +1,19 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: github-sso-secret
+  namespace: monitoring
+spec:
+  encryptedData:
+    clientId: AgB3IKp/+KkLjbo/cNx40gL9RQusVMnCkmGxmFnjRysW/aosyHrkv79NwGdYV6zZ8C0Xht2w+pdz1HAnKh73bt1V6TCKwBKPWvkCbYjcUTwVNrRjh31f+xqMJLCbDpJ0Avicx8+XtWoyxmb0tGK/VNCmfW8lqm+35ViybmSyvVp8NMapE9EDow07pAwS6f4fnP6NQN47SXQh6fpOFDgA/v27x5VGTkrxCCPUC6WZwCzi731BafGMdMCn2WJs2EuIgNBje8LnBuwk5I4Oy1HJe28B7DcPsjWLm2vHbUerYQkaIKe1e6tprArP79jGTo3WN7wtxL+roPziUY9pSBeO+iYZdeHzI+cU4lnoJsSK+n6csaU9LyYljZqDL+mZm9/ZO42AYTx7tS6S6ddl5u59YfK0Kf0I7DA04C4fsGUeR0E1AN3rzKfldm1LxHZ64R/0rRLOvSILjLB19TaECF7j5iU1i0wY5ib02ennFi7t71Ezq77XYW/5jiNJZYR7W6m7C2XoOc9sLMXG1KiKqTzapIE5B1FZxGA1nna52WZNGxA5hdPIrbrf/bNmbaYRwWJ2th1tQzO9WJgnvzU08SnhmMMu44uiSS7PiR6cXO8TDUD5TeOXPGrZoTiBKiSqySUYlQLDBKGvy5ltM24SDp+TJQKaIAtBU0oWe/CAVJpm3mD0PUPia/TmidVYoBajULZ0XJKQd4ZdIJmHNi2UKGpFUsdVhxo8YQ==
+    clientSecret: AgAbqarkhCxwN+iyAwISBAynvQ9zQ82Kr27qUAzN8EqkP0BmajvEYBoND8y4yrYakjIA8mmcCC3KCBzfCJEsZcxH+tz9JsISHRw2Wh5TpMixg/YBln17O8l8IM3RKo3RscovXtrAtsHoPyQVgagWjw9x4aN1wgZ5WP/0BDuSX+/ODleXjO9zYrirF8R4Xv7TNpozYC4jbkVl/1NOD73U/e53zLJjC1GP6Uxk+hmTnE0TPg6AAH+2dZ1Wxw0/beuDPXqkimbRmSMsrG9Dj9gJb1fM8A5OOztKXdFwPBRXbVD50CMwL9twT4LD+gccmDvXXV/DJe5+V+McvdjetSlTh50MVOQqcx9N3KqHjizo2kkPKNG5uopAut+BneQjlDYd4E1Hha77aMO/lIrIJRK6haVBN+VHHPAV+aOBgJnjj5wlvckG9J6rKFKEPuvfmN3+N5Hycct7gsR9/OdJL++ocqpud2WgCw7Sk6lnmsVeRDxTCvbLPAfiG/osVOlS5rgtLjQQVhdoPm4hmol28mL5gWFzU3bIcGYiu2t1Dz4F/vqMPwOsYGPvbHUfMATFvjfUvUFa6C0vmZ/UyqMNtwwZzq5K2lmoUh7OJhuJCgCRuxw07TBXNU3w7s7J9QbJ8BJmvM8WMTD9dmHeoD8sqqV0z/LS7gjrG/d4iudvp1DU/Tc1U/93BtyHmtZhdCONjAkEAXOa+Mz1QazN/0JiEO/RyZkDEO8tCGu7WoyT/vvXIkEEsFwM3eqXtXTM
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/part-of: grafana
+      name: github-sso-secret
+      namespace: monitoring
+    type: Opaque
+
