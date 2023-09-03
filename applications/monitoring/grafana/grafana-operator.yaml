@@ -1,0 +1,64 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 3.4.1
+    chart: grafana-operator
+    helm:
+      values: |
+        grafana:
+          config:
+            log:
+              mode: "console"
+            auth:
+              generic_oauth: "true"
+              disable_login_form: "true"
+            auth.github:
+              enabled: "true"
+              allow_sign_up: "true"
+              scopes: user:email,read:org
+              auth_url: https://github.com/login/oauth/authorize
+              token_url: https://github.com/login/oauth/access_token
+              api_url: https://api.github.com/user
+              allowed_organizations: cloudnativerioja
+              client_id: PLACEHOLDER
+              client_secret: PLACEHOLDER
+              role_attribute_path: contains(groups[*], '@cloudnativerioja/organizers') && 'GrafanaAdmin' || 'Viewer'
+            server:
+              root_url: https://grafana.cloudnativerioja.com
+          ingress:
+            enabled: true
+            host: grafana.cloudnativerioja.com
+            annotations:
+              cert-manager.io/cluster-issuer: "letsencrypt-prod"
+              kubernetes.io/ingress.class: traefik
+              traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+              traefik.ingress.kubernetes.io/router.tls: "true"
+            tls: true
+            tlsSecret: grafana.cloudnativerioja.com-tls
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
