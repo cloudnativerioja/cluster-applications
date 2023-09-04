@@ -1,0 +1,4 @@
+# unsealed secrets
+applications/core/argocd/sso-secret.yaml
+applications/permission-manager/secret.yaml
+applications/monitoring/grafana/github-sso-secret.yaml
