@@ -26,12 +26,12 @@ spec:
       values: |
         prometheus:
           resources:
-            requests:
-              cpu: 300m
-              memory: 200Mi
             limits:
+              cpu: 300m
+              memory: 512Mi
+            requests:
               cpu: 200m
-              memory: 70Mi
+              memory: 512Mi
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
