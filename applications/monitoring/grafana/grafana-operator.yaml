@@ -40,7 +40,7 @@ spec:
               token_url: https://github.com/login/oauth/access_token
               api_url: https://api.github.com/user
               allowed_organizations: cloudnativerioja
-              role_attribute_path: contains(groups[*], '@cloudnativerioja/organizers') && 'GrafanaAdmin' || 'Viewer'
+              role_attribute_path: contains(groups[*], '@cloudnativerioja/organizers') && 'GrafanaAdmin' || 'Viewer' # yamllint disable-line rule:line-length
             server:
               root_url: https://grafana.cloudnativerioja.com
           ingress:
