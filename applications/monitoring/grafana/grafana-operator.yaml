@@ -21,6 +21,7 @@ spec:
     targetRevision: 3.4.1
     chart: grafana-operator
     helm:
+      # yamllint disable rule:line-length
       values: |
         grafana:
           envFrom:
@@ -40,7 +41,7 @@ spec:
               token_url: https://github.com/login/oauth/access_token
               api_url: https://api.github.com/user
               allowed_organizations: cloudnativerioja
-              role_attribute_path: contains(groups[*], '@cloudnativerioja/organizers') && 'GrafanaAdmin' || 'Viewer' # yamllint disable-line rule:line-length
+              role_attribute_path: contains(groups[*], '@cloudnativerioja/organizers') && 'GrafanaAdmin' || 'Viewer'
             server:
               root_url: https://grafana.cloudnativerioja.com
           ingress:
@@ -60,6 +61,7 @@ spec:
             limits:
               cpu: 500m
               memory: 512Mi
+      # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
