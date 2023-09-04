@@ -23,6 +23,9 @@ spec:
     helm:
       values: |
         grafana:
+          envFrom:
+            - secretRef:
+                name: github-sso-secret
           config:
             log:
               mode: "console"
@@ -37,8 +40,6 @@ spec:
               token_url: https://github.com/login/oauth/access_token
               api_url: https://api.github.com/user
               allowed_organizations: cloudnativerioja
-              client_id: PLACEHOLDER
-              client_secret: PLACEHOLDER
               role_attribute_path: contains(groups[*], '@cloudnativerioja/organizers') && 'GrafanaAdmin' || 'Viewer'
             server:
               root_url: https://grafana.cloudnativerioja.com
