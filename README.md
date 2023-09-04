@@ -13,25 +13,54 @@ Este repositorio contiene los manifests de Kubernetes para el cluster de Civo. S
 La estructura de carpetas es la siguiente:
 
 ```
+├── README.md
 ├── applications
-│   └── core
-│       ├── cert-manager
-│       │   ├── cert-manager.yaml
-│       │   ├── cloudflare-api-token.yaml
-│       │   └── clusterissuer.yaml
-│       ├── env-test.yaml
-│       ├── external-dns
-│       │   └── external-dns.yaml
-│       └── namespace.yaml
-├── environments
-│   ├── prod
-│   │   └── namespace.yaml
-│   ├── staging
-│   │   └── namespace.yaml
-│   └── test
-│       │── namespace.yaml
-│       └── official-website.yaml
-└── README.md
+│   ├── core
+│   │   ├── argo-cd
+│   │   │   ├── argocd.yaml
+│   │   │   └── sso-secret.encrypted.yaml
+│   │   ├── cert-manager
+│   │   │   ├── cert-manager.yaml
+│   │   │   └── clusterissuer.yaml
+│   │   ├── cluster-autoscaler
+│   │   │   ├── bindings.yaml
+│   │   │   ├── clusterrole.yaml
+│   │   │   ├── deployment.yaml
+│   │   │   ├── role.yaml
+│   │   │   └── sa.yaml
+│   │   ├── env-test.yaml
+│   │   ├── external-dns
+│   │   │   ├── cloudflare-api-token.yaml
+│   │   │   └── external-dns.yaml
+│   │   ├── namespace.yaml
+│   │   ├── perm-manager
+│   │   │   └── permission-manager.yaml
+│   │   └── traefik
+│   │       ├── ingressroute.yaml
+│   │       └── traefik.yaml
+│   ├── monitoring
+│   │   ├── grafana
+│   │   │   ├── dashboards.yaml
+│   │   │   ├── datasources.yaml
+│   │   │   ├── github-sso-secred.encrypted.yaml
+│   │   │   ├── github-sso-secret.yaml
+│   │   │   └── grafana-operator.yaml
+│   │   ├── namespace.yaml
+│   │   └── prometheus
+│   │       └── kube-prometheus.yaml
+│   └── permission-manager
+│       ├── ingress.yaml
+│       ├── kustomization.yaml
+│       ├── namespace.yaml
+│       └── secret.encrypted.yaml
+└── environments
+    ├── prod
+    │   └── namespace.yaml
+    ├── staging
+    │   └── namespace.yaml
+    └── test
+        ├── namespace.yaml
+        └── official-website.yaml
 ```
 
 # POWERED BY [CIVO CLOUD](https://www.civo.com/)
