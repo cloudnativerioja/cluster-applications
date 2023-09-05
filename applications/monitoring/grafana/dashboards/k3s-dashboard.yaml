@@ -1,14 +1,14 @@
 ---
-# Node Exporter Full
-# https://grafana.com/grafana/dashboards/1860-node-exporter-full/
+# k3s dashboard
+# https://grafana.com/grafana/dashboards/15282-k8s-rke-cluster-monitoring/
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
-  name: grafanadashboard-node-exporter
+  name: k3s-dashboard
   namespace: monitoring
 spec:
   instanceSelector:
     matchLabels:
       app.kubernetes.io/name: grafana-operator
-  url: "https://grafana.com/api/dashboards/1860/revisions/32/download"
+  url: "https://grafana.com/api/dashboards/15282/revisions/1/download"
   folder: "General"
