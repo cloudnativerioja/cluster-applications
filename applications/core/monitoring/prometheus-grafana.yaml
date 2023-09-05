@@ -13,7 +13,7 @@ spec:
     repoURL: "https://github.com/cloudnativerioja/cluster-applications.git"
     targetRevision: HEAD
     directory:
-      recurse: false
+      recurse: true
   sources: []
   project: default
   syncPolicy:
