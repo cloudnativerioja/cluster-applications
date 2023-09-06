@@ -15,3 +15,4 @@ spec:
     access: proxy
     url: http://prometheus-operated:9090
     isDefault: true
+    uid: prometheus-datasource
