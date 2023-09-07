@@ -16,3 +16,21 @@ spec:
     url: http://prometheus-operated:9090
     isDefault: true
     uid: prometheus-datasource
+---
+# loki datasource
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDatasource
+metadata:
+  name: loki-grafanadatasource
+  namespace: monitoring
+spec:
+  instanceSelector:
+    matchLabels:
+      app.kubernetes.io/name: grafana-operator
+  datasource:
+    name: loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    isDefault: true
+    uid: loki-datasource
