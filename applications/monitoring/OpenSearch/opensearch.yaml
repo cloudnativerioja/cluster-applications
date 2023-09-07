@@ -32,6 +32,11 @@ spec:
           requests:
             cpu: 512m
             memory: 1Gi
+        securityConfig:
+          internalUsersSecret: internal-users
+        extraEnvs:
+          - name: DISABLE_INSTALL_DEMO_CONFIG
+            value: "true"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
