@@ -1,12 +1,17 @@
 ---
-# k3s dashboard
-# https://grafana.com/grafana/dashboards/15282-k8s-rke-cluster-monitoring/
+# Loki Dashboard
+# https://grafana.com/grafana/dashboards/13186-loki-dashboard/
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: loki-dashboard
   namespace: monitoring
 spec:
+  datasources:
+    - inputName: "DS_PROMETHEUS"
+      datasourceName: "prometheus"
+    - inputName: "DS_LOKI"
+      datasourceName: "loki"
   instanceSelector:
     matchLabels:
       app.kubernetes.io/name: grafana-operator
