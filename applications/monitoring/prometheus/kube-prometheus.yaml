@@ -36,8 +36,6 @@ spec:
           enabled: false
         exporters:
           kube-state-metrics:
-            ## @param exporters.kube-state-metrics.enabled Enable kube-state-metrics
-            ##
             enabled: false
   destination:
     server: "https://kubernetes.default.svc"
