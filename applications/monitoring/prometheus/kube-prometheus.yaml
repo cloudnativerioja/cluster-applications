@@ -32,6 +32,11 @@ spec:
             requests:
               cpu: 256m
               memory: 512Mi
+        blackboxExporter:
+          enabled: false
+        exporters:
+          kube-state-metrics:
+            enabled: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring

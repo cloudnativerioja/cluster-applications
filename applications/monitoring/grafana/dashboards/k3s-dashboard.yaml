@@ -4,7 +4,7 @@
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
-  name: loki-dashboard
+  name: k3s-dashboard
   namespace: monitoring
 spec:
   datasources:
@@ -15,5 +15,5 @@ spec:
   instanceSelector:
     matchLabels:
       app.kubernetes.io/name: grafana-operator
-  url: "https://grafana.com/api/dashboards/13639/revisions/2/download"
+  url: "https://grafana.com/api/dashboards/15282/revisions/1/download"
   folder: "General"
