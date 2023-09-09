@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus
+  name: kyverno
   namespace: argocd
 spec:
   project: default
@@ -19,24 +19,15 @@ spec:
         maxDuration: 3m0s
         factor: 2
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 8.18.0
-    chart: kube-prometheus
+    repoURL: https://kyverno.github.io/kyverno/
+    targetRevision: v3.0.0
+    chart: kyverno
     helm:
       values: |
-        prometheus:
-          resources:
-            limits:
-              cpu: 512m
-              memory: 1Gi
-            requests:
-              cpu: 256m
-              memory: 512Mi
-        blackboxExporter:
+        reportsController:
           enabled: false
-        exporters:
-          kube-state-metrics:
-            enabled: true
+        cleanupController:
+          enabled: false
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: monitoring
+    namespace: kyverno
