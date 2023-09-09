@@ -8,8 +8,8 @@ metadata:
     policies.kyverno.io/minversion: 1.6.0
     policies.kyverno.io/severity: medium
     policies.kyverno.io/subject: Pod
-    # yamllint disable-line rule:line-length
     policies.kyverno.io/description: >-
+# yamllint disable-line rule:line-length
       The ':latest' tag is mutable and can lead to unexpected errors if the
       image changes. A best practice is to use an immutable tag that maps to
       a specific version of an application Pod. This policy validates that the image

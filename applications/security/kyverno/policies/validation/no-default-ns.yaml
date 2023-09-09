@@ -9,8 +9,8 @@ metadata:
     policies.kyverno.io/category: Multi-Tenancy
     policies.kyverno.io/severity: medium
     policies.kyverno.io/subject: Pod
-    # yamllint disable-line rule:line-length
     policies.kyverno.io/description: >-
+# yamllint disable-line rule:line-length
       Kubernetes Namespaces are an optional feature that provide a way to segment and
       isolate cluster resources across multiple applications and users. As a best
       practice, workloads should be isolated with Namespaces. Namespaces should be required
