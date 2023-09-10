@@ -28,6 +28,11 @@ spec:
           enabled: false
         cleanupController:
           enabled: false
+        cleanupJobs:
+          admissionReports:
+            enabled: false
+          clusterAdmissionReports:
+            enabled: false
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kyverno
