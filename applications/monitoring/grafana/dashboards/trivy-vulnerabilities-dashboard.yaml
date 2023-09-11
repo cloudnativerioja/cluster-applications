@@ -1,0 +1,14 @@
+---
+# Trivy Operator - Vulnerabilities
+# https://grafana.com/grafana/dashboards/16337-trivy-operator-vulnerabilities/
+apiVersion: grafana.integreatly.org/v1beta1
+kind: GrafanaDashboard
+metadata:
+  name: trivy-vulnerabilities-dashboard
+  namespace: monitoring
+spec:
+  instanceSelector:
+    matchLabels:
+      app.kubernetes.io/name: grafana-operator
+  url: "https://grafana.com/api/dashboards/16337/revisions/8/download"
+  folder: "General"
