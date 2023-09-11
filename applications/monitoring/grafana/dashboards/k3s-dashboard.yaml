@@ -1,6 +1,6 @@
 ---
-# Loki Dashboard
-# https://grafana.com/grafana/dashboards/13186-loki-dashboard/
+# K3S cluster monitoring
+# https://grafana.com/grafana/dashboards/15282-k8s-rke-cluster-monitoring/
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
