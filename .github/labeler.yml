@@ -11,4 +11,4 @@ golang:
   - "**/*.go"
 
 secrets:
-  - "**/*encrypted*.yaml"
+  - "**/*encrypted.yaml"
