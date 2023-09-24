@@ -28,11 +28,10 @@ spec:
           enabled: true
         resources:
           limits:
-            cpu: 100m
-            memory: 128Mi
+            memory: 512Mi
           requests:
-            cpu: 100m
-            memory: 128Mi
+            cpu: 300m
+            memory: 512Mi
   destination:
     server: "https://kubernetes.default.svc"
     namespace: trivy

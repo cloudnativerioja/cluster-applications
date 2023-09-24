@@ -27,11 +27,10 @@ spec:
         prometheus:
           resources:
             limits:
-              cpu: 512m
               memory: 1Gi
             requests:
               cpu: 256m
-              memory: 512Mi
+              memory: 1Gi
         blackboxExporter:
           enabled: false
         exporters:

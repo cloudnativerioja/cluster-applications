@@ -56,10 +56,9 @@ spec:
             tlsSecret: grafana.cloudnativerioja.com-tls
           resources:
             requests:
-              cpu: 100m
-              memory: 128Mi
+              cpu: 256m
+              memory: 512Mi
             limits:
-              cpu: 500m
               memory: 512Mi
       # yamllint enable rule:line-length
   destination:
