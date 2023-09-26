@@ -1,16 +1,16 @@
----
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
   creationTimestamp: null
   name: cloudflare-api-key
-  namespace: core-apps
 spec:
   encryptedData:
-    api-key: AgAHmtO21hg7CJQndhzFoFDgyFOiHnhXGfjnIP9tSpFKNa1RIOBCpE6hMcXyFgFAS0+yqgmfuWpbMMOSKSgAqmYteZVMyIXiwFzpN9tTzZ0eq2/xiE3zo/IWwT/7x8Wx+1aYxzC3K77CFl26ZcLOTuTSnoANd5no3gVf+OmJH94FV/OlgjbET/QGHqvhNvOH58TVuyKkvoJmOVQiPrlQQJQ5tvbAnvMP+lFgWtVconps3tNBKd966ysTYSjTaKtkp/Jjq4DMqh6M8OkPI11yimHeRDUk16RP/mBU6gd6i748wtqomvmwrzd9RGgwWrQ7xp1w7kvSzyTa8vxBQfK7eF6Pb1ybh1XyJAO3Tq4/7HKbKgjqbngiqf0QB2XGoGiwMb3U2hhXZ6cJ85mtTdzZ0O+wqevlrsW5BoKPP8sio/dFoqL57YbxkDm5Udrbpjsso5i5+ByjkSE1yhOZvKXmLrmLGs9v0O+KzaHWZmBCBw/Q0fn8SrLLlxIXoqzfM7Ggn4UCZFcRzDOE67hXNN7c8y7xz5hrD2Zu5N8eYf0TAh5Ojr2uGpI3/Z8thBw17xooc0gZYGUl84g19X3c/zpc/e1bSbEFVKi/5RvZkCNxdJUGhBdNPu818HvklJZ4v95c8tCMVYilai/UAdwJAy7/t3cfvC2+afVnQmdV0QHa2gnq8hByFWgqenk9xNSbDBd5Vd1dEmpl2IuHCeMBUZGs3ESosw/19G6d3W09H/tMg3EYkH8k6nah # yamllint disable-line rule:line-length
+    api-key: AgBBwi6rNtOkQ8aLNhx8e6iuB6i1fyW2JC38xqeOBShWmbNARaE98V9vATPzNEw8QjiO/kEHlFwe8kBQUyMSb4UsHyzDZUvN9lnhJMQ6SGcV7VIx79fJBY9ogz7zkkg5FRwF7nLy+/xwJwp5CuaxpREBXuf7w0TC7/ztbL3t2lBKUMFx/AU+ykXAkDha1Nc2lczWC9mmMuoOLnojCd1KsPEgfnJuIcwG65ZxhC6VCZIQ4TeBMZV5M0yVdqy42jFb1+u4VuRiCICS5riridyHsQVwHdhv+geQng7juvJYctGxnjmQVVrkeCXhGJiCaTOfn+z27qRiQ2XTqFi0R8FI+WokeUS3iqg0V76HZaVkhJy4Ddxq+3rDbdiAOmGE4k/qhHuE5G5AnYjDgr804xm+Ioyltya1FdsdjhKPXNc15VOavbYuSvj4nU6mg/1rxHwY+3eq5TXtXdx23nsZ+nrH2UO/0MSOMdHam/ZOB7IDfIJBhi3Gh/JXqnwPVS1/qL/+7NixkFc977I5rwDDSb47TlW94PIicFplNFzQMjtYfOLPxKOvZ1UlujIpdUHcWfrOiTTrD3qnTql1hfhl1JqEM59J+nK8/x0LUxR8jfG1jn9ZF0RMVbMDMfIYOgEWq1Nga05Qpar8e5nSIyxGlPPpHvJHF8WMQWWQn4PyCa/1PYeOC/AaPLHwVMqiUKq2uPUDOGu/4vejTcAKDkpBMyEcuXYYhj23bSUWuUfxLw5zxhUGxvS9n70kFrgI # yamllint disable-line rule:line-length
   template:
     metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
       creationTimestamp: null
       name: cloudflare-api-key
-      namespace: core-apps
-    type: Opaque
