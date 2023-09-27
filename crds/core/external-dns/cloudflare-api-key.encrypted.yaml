@@ -1,0 +1,18 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  creationTimestamp: null
+  name: cloudflare-api-key
+  namespace: core-apps
+spec:
+  encryptedData:
+    api-key: AgBFaDy9FlpU4VgnobWzLICwd19/7rPtj411FBciPwCVi7vHL6OZrrQVdrIjkGO9VoemI9PkkV9D3X7lFddX6GftPJ95QYcrZBOrsD7bYpU0pEDD/VzEJHizd42v9hvQzRUZ5WbigmtXWq5YJsf91rxZgYMZIjmyXRo0HjYUMOhBweJfalGFqeYlhXQhXeYND9Vq99gU4/KW8uEfMbL51TlWWCO8+EkM5ofW0OYWzFR5ZjmlSFhnypkhmxcpbCA0EBLHqxv7R/iXAyB3ViXHLLO3+NuchPFchzJW+KWHLY09hiwZ8JXAaKWLvS2TOZCQdtGXK5YoHaV3WJtCUZ7EOa+EA4q3DzeOyHKEHt4rgSbcTAnJWBHfiFEUb+W001n/8JsaqI+EeTHAZlwWNVcS8kB2uz2QrqYfiW6rx9tD7TVBv+d9U4mheN4AtlkUZdxayCBV8S4um9/a0zBd4OzX2xAW514yH1V+V+IwD43YjB8BNKcVUp+ZLc08R/A+TSPy4jDu4Y5Vwe8xDUYtIhun1vjcvu167uRShSdviZkj+kzNGqQEgJebu52Lico0Ihd13I+cdqQkDMpy/P6Zcn1htDSruTW2NUrPcexw+zuyDMA4s30cchi3WQWzdCgpqHewm9gjdemBHTHCux6BH2vM+9NZnfd4n+VqOduLMSP5v6Tm2wO5DCGAJx0idFwvFbLr8B6iW6kRdWEQfILuNhPCV2h/AHZwLB8ghUlOOrmoawIYlfUjtZN60RDx # yamllint disable-line rule:line-length
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      creationTimestamp: null
+      name: cloudflare-api-key
+      namespace: core-apps
