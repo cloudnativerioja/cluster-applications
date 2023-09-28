@@ -4,3 +4,4 @@ applications/permission-manager/secret.yaml
 applications/monitoring/grafana/github-sso-secret.yaml
 crds/core/external-dns/cloudflare-api-key.decrypted.yaml
 crds/core/monitoring/grafana/github-sso-secret.decrypted.yaml
+crds/core/argo-cd/sso-secret.decrypted.yaml
