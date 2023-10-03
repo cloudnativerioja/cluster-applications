@@ -93,6 +93,7 @@ The folder structure is the following:
 │       └── official-website.yaml
 └── README.md
 ```
+
 ## How to use the same private key for all the clusters (sealed-secrets)
 
 In order to use the same private key for all the clusters, you need to create a secret with the private key and then reference it in the `sealed-secrets-controller` deployment. The following steps will guide you through the process:
@@ -113,6 +114,12 @@ kubectl -n core-apps label secret myawesomesecret sealedsecrets.bitnami.com/seal
 
 ```bash
 kubectl -n core-apps delete pod -l app.kubernetes.io/name=sealed-secrets-controller
+```
+
+4. Check logs to see if the secret was loaded correctly:
+
+```bash
+kubectl -n core-apps logs -l app.kubernetes.io/name=sealed-secrets-controller
 ```
 
 # POWERED BY [CIVO CLOUD](https://www.civo.com/)
