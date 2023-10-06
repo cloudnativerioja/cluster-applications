@@ -35,8 +35,8 @@ spec:
                   id: github
                   name: GitHub
                   config:
-                    clientID: d5576c72f49362ec354c
-                    clientSecret: $sso-secret:dex.github.clientSecret
+                    clientID: $sso-secret:clientID
+                    clientSecret: $sso-secret:clientSecret
                     orgs:
                     - name: cloudnativerioja
           rbac:
