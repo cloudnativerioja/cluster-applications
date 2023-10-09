@@ -28,8 +28,6 @@ spec:
         ingress:
           enabled: true
           hostname: minio.cloudnativerioja.com
-          ## @param ingress.path The Path to MinIO&reg;. You may need to set this to '/*' in order to use this with ALB ingress controllers.
-          ##
           path: /
           pathType: ImplementationSpecific
           servicePort: minio-console
