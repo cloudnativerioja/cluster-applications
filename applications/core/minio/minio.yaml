@@ -38,6 +38,12 @@ spec:
             traefik.ingress.kubernetes.io/router.tls: "true"
           tls: true
           selfSigned: false
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            memory: 256Mi
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
