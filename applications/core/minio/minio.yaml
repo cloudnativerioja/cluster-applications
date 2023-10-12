@@ -38,6 +38,23 @@ spec:
             traefik.ingress.kubernetes.io/router.tls: "true"
           tls: true
           selfSigned: false
+        apiIngress:
+          enabled: true
+          hostname: api.minio.cloudnativerioja.com
+          path: /
+          pathType: ImplementationSpecific
+          servicePort: minio-api
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+            kubernetes.io/ingress.class: traefik
+            traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+            traefik.ingress.kubernetes.io/router.tls: "true"
+          tls: true
+          selfSigned: false
+        persistence:
+          enabled: true
+          storageClass: "minio"
+          size: 10Gi
         resources:
           requests:
             cpu: 100m
