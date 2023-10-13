@@ -25,6 +25,11 @@ spec:
       values: |
         auth:
           existingSecret: minio-credentials
+        extraEnvVars:
+          - name: MINIO_SERVER_URL
+            value: "https://api.minio.cloudnativerioja.com"
+          - name: MINIO_BROWSER_REDIRECT_URL
+            value: "https://minio.cloudnativerioja.com"
         ingress:
           enabled: true
           hostname: minio.cloudnativerioja.com
