@@ -30,6 +30,12 @@ spec:
           ingressShim:
             defaultIssuerName: letsencrypt-prod
             defaultIssuerKind: ClusterIssuer
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            memory: 256Mi
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
