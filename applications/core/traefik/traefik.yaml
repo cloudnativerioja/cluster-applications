@@ -58,8 +58,6 @@ spec:
               enabled: false
           additionalArguments:
           - "--api.insecure=true"
-          # Create the service, middleware and Ingress used to expose the dashboard (can also be created in another way).
-          # /!\ Yes, you need to replace "changeme" password with a better one. /!\
           extraObjects:
             - apiVersion: v1
               kind: Service
@@ -92,8 +90,10 @@ spec:
                 name: traefik-dashboard
                 namespace: core-apps
                 annotations:
+                  # yamllint disable-line rule:line-length
                   traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd
                   cert-manager.io/cluster-issuer: "letsencrypt-prod"
+                  # yamllint disable-line rule:line-length
                   traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
                   traefik.ingress.kubernetes.io/router.tls: "true"
               spec:
