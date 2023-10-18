@@ -22,6 +22,7 @@ spec:
     targetRevision: 24.0.0
     helm:
       releaseName: traefik
+      # yamllint disable rule:line-length
       values: |
         deployment:
           kind: DaemonSet
@@ -90,9 +91,9 @@ spec:
                 name: traefik-dashboard
                 namespace: core-apps
                 annotations:
-                  traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd # yamllint disable-line rule:line-length
+                  traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd
                   cert-manager.io/cluster-issuer: "letsencrypt-prod"
-                  traefik.ingress.kubernetes.io/router.entrypoints: web,websecure # yamllint disable-line rule:line-length
+                  traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
                   traefik.ingress.kubernetes.io/router.tls: "true"
               spec:
                 rules:
@@ -110,6 +111,7 @@ spec:
                     - secretName: traefik-dashboard-tls
                       hosts:
                         - traefik.cloudnativerioja.com
+      # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
