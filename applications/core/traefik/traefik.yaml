@@ -65,6 +65,7 @@ spec:
               kind: Service
               metadata:
                 name: traefik-api
+                namespace: core-apps
               spec:
                 type: ClusterIP
                 selector:
@@ -80,6 +81,7 @@ spec:
               kind: Middleware
               metadata:
                 name: traefik-dashboard-auth
+                namespace: core-apps
               spec:
                 basicAuth:
                   secret: traefik-dashboard-auth-secret
@@ -88,8 +90,9 @@ spec:
               kind: Ingress
               metadata:
                 name: traefik-dashboard
+                namespace: core-apps
                 annotations:
-                  traefik.ingress.kubernetes.io/router.middlewares: default-traefik-dashboard-auth@kubernetescrd
+                  traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd
                   cert-manager.io/cluster-issuer: "letsencrypt-prod"
                   traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
                   traefik.ingress.kubernetes.io/router.tls: "true"
