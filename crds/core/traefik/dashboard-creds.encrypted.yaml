@@ -1,0 +1,20 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: "true"
+  creationTimestamp: null
+  name: traefik-dashboard-auth-secret
+  namespace: core-apps
+spec:
+  encryptedData:
+    password: AgBm8wyx2jYQ5jjiDlxMPHZQftv6uLhg4jIN+QN8GcQ061CQk2hGRiMiPCEfNHYZwXcEAu+TTgClBlZDyDtgAzdJHapyrtiF9tlxU9cdvcbvzdkdFmJdP7SC8kXg1A4uUuPkZkDMB59ioRKI5TAlV3U8Xs8sCBehbCppru/FHW9pV9vJ6BCWXpry7sFNTi3lSYyuyjU/GDPAHk/AO9iPUfDteFKbnV/kKzn2PaTpFU9wnBA4i3c33kzYlbh23Dih8xETD7eLrm5PSsly1//Lzj6uk5c4uvIxyUSJpr/I+70k0tsu843AP6ti7PMtCYWJc1GJwnFzEz1B83op0rOhNLa/Lk7X+IC3Hf/OkwKJrjGX4fD9G9Ar1FaSr+OaR0AaZ5Dr8H7y+GIP8sFpSZ+hRXQTx/JVWH5FNBArEJpmsjYQacLIOfOwpalvyYXNZVrydpaIhQbS8+pgJTGxkaueNiz17ji+gxr5Py1ju8c4RMRNy/yyfWJq8VfiaupBLmhlXHS/UShKQaIKTIHHZE5HFAj/gQtEZDY6sCWDKRt4ShE0/uunnPo4KA0XmKUSmFoeuPduFk2gzCRlJlHJYI0iupy14qFnLtNj9MxbPRDW8ebdKWqh6wv/0qZI7i/K/26NDLycTJRGUvJx+GDCE9lHzGt1aoieC7LcNG8GWkJ7Qa113dxab6OIGUn/ks98CraIXI1XL9Gn2PVGdow= # yamllint disable-line rule:line-length
+    username: AgBZvl2qh5veyCvy2L1uAyzU194vZ3YzY0rwGVk5rFj+aYaM5jdeu+UvKKg+2YmofyPsT/ic8WEG+h32BS0SRNP1hOiqoRey4pc+hoNUaz1gaXqbmjvpQFxu+lqvY8uxhoB8DBWoDzzbiNowjTLB3Lal7+vb8HCGafXuMHGPE1bnT9eITqqT5wuK/gmfiY4xT3qu4DioP5YK4iZUdZ8p1wBW+Ah4o0Y5Hg59J6jqzLP74b3qksJZ4mfB6eJmDvvdcI1HX6lv59v6n4zqfdCXrAV8G7vfxl2TTq9cjptAHq+pu0t7EJYva9q7CbBbi+NxWAsdxk6zXitspje3Q6Vn3nhwrUx7fK1e7pdCozpzSdLroPYoZ113NVp5lDT0yIPmIn991hg6uhiSP0gMk4e9IZmzWXn9q+Ml7WJv8pVqrwvUKBz8vZmOVv53i0qbOtXgjMbNIl5SWNm90axoaLYrjuVGtfgYAjRXFU8++4SRItDeV5cAntMJnrIpAxqRKoSoMQteJtebvgbk+vJP46q5tXVJzadKecsH6KjqQSK8KsYlGW4b2MQhGtEaDVdbAbtLARY/xM0I8ys1zISWDNO+fAgtwZKJ9Uwq5GBpdCGi8GVijHaSm5UNL4txzrPa8OcWACnlpuhiPr9uypvJwnfoMDnNAn09o4VbDwmGwqTXcLd8gfd7pTyZciy2/DBR6SXoZJ58ti2/nA== # yamllint disable-line rule:line-length
+  template:
+    metadata:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: "true"
+      creationTimestamp: null
+      name: traefik-dashboard-auth-secret
+      namespace: core-apps
+    type: kubernetes.io/basic-auth

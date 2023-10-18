@@ -22,12 +22,12 @@ spec:
     targetRevision: 24.0.0
     helm:
       releaseName: traefik
+      # yamllint disable rule:line-length
       values: |
         deployment:
           kind: DaemonSet
         api:
           dashboard: true
-          insecure: true
         logs:
           general:
             level: INFO
@@ -54,6 +54,64 @@ spec:
             allowEmptyServices: true
             publishedService:
               enabled: true
+          ingressRoute:
+            dashboard:
+              enabled: false
+          additionalArguments:
+          - "--api.insecure=true"
+          extraObjects:
+            - apiVersion: v1
+              kind: Service
+              metadata:
+                name: traefik-api
+                namespace: core-apps
+              spec:
+                type: ClusterIP
+                selector:
+                  app.kubernetes.io/name: traefik
+                  app.kubernetes.io/instance: traefik-default
+                ports:
+                - port: 8080
+                  name: traefik
+                  targetPort: 9000
+                  protocol: TCP
+
+            - apiVersion: traefik.io/v1alpha1
+              kind: Middleware
+              metadata:
+                name: traefik-dashboard-auth
+                namespace: core-apps
+              spec:
+                basicAuth:
+                  secret: traefik-dashboard-auth-secret
+
+            - apiVersion: networking.k8s.io/v1
+              kind: Ingress
+              metadata:
+                name: traefik-dashboard
+                namespace: core-apps
+                annotations:
+                  traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd
+                  cert-manager.io/cluster-issuer: "letsencrypt-prod"
+                  traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+                  traefik.ingress.kubernetes.io/router.tls: "true"
+              spec:
+                rules:
+                - host: traefik.cloudnativerioja.com
+                  http:
+                    paths:
+                    - path: /
+                      pathType: Prefix
+                      backend:
+                        service:
+                          name: traefik-api
+                          port:
+                            name: traefik
+                  tls:
+                    - secretName: traefik-dashboard-tls
+                      hosts:
+                        - traefik.cloudnativerioja.com
+      # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: core-apps
