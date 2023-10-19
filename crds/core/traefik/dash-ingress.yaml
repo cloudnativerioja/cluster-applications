@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-dashboard
+  namespace: core-apps
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  rules:
+    - host: traefik.cloudnativerioja.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: traefik-api
+                port:
+                  name: traefik
+  tls:
+    - secretName: traefik-dashboard-tls
+      hosts:
+        - traefik.cloudnativerioja.com
