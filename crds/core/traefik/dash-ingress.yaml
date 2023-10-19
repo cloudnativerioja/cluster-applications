@@ -4,7 +4,7 @@ metadata:
   name: traefik-dashboard
   namespace: core-apps
   annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: core-apps-traefik-dashboard-auth@kubernetescrd # yamllint disable-line rule:line-length
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
     traefik.ingress.kubernetes.io/router.tls: "true"

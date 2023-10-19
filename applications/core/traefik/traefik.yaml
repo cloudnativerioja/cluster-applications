@@ -22,7 +22,6 @@ spec:
     targetRevision: 24.0.0
     helm:
       releaseName: traefik
-      # yamllint disable rule:line-length
       values: |
         deployment:
           kind: DaemonSet
