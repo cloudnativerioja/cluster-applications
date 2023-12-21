@@ -31,7 +31,7 @@ spec:
             requests:
               cpu: 256m
               memory: 1Gi
-          additionalScrapeConfigs
+          additionalScrapeConfigs:
             enabled: true
             type: internal
             jobList:
