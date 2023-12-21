@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kyverno
+  namespace: argocd
+spec:
+  destination:
+    namespace: kyverno
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: kyverno
+    repoURL: https://kyverno.github.io/kyverno
+    targetRevision: 3.1.1
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+    helm:
+      values: |
+        grafana:
+          enabled: true
+          configMapName: '{{ include "kyverno.fullname" . }}-grafana'
+          namespace: monitoring
+          annotations: {}
+          labels:
+            grafana_dashboard: "1"
+          grafanaDashboard:
+            create: true
+            matchLabels:
+              dashboards: "grafana"
