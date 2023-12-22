@@ -2,6 +2,7 @@ apiVersion: kyverno.io/v2beta1
 kind: ClusterCleanupPolicy
 metadata:
   name: cleanup-empty-replicasets
+  # yamllint disable rule:line-length
   annotations:
     policies.kyverno.io/title: Cleanup Empty ReplicaSets
     policies.kyverno.io/category: Other
@@ -17,6 +18,7 @@ metadata:
       many empty ReplicaSets in the cluster which can create clutter and false positives if policy
       reports are enabled. This cleanup policy removes all empty ReplicaSets across the cluster.
       Note that removing empty ReplicaSets may prevent rollbacks.
+  # yamllint enable rule:line-length
 spec:
   match:
     any:

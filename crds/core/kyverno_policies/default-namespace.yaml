@@ -2,6 +2,7 @@ apiVersion: kyverno.io/v1
 kind: ClusterPolicy
 metadata:
   name: disallow-default-namespace
+  # yamllint disable rule:line-length
   annotations:
     pod-policies.kyverno.io/autogen-controllers: none
     policies.kyverno.io/title: Disallow Default Namespace
@@ -21,28 +22,29 @@ spec:
   validationFailureAction: audit
   background: true
   rules:
-  - name: validate-namespace
-    match:
-      any:
-      - resources:
-          kinds:
-          - Pod
-    validate:
-      message: "Using 'default' namespace is not allowed."
-      pattern:
-        metadata:
-          namespace: "!default"
-  - name: validate-podcontroller-namespace
-    match:
-      any:
-      - resources:
-          kinds:
-          - DaemonSet
-          - Deployment
-          - Job
-          - StatefulSet
-    validate:
-      message: "Using 'default' namespace is not allowed for pod controllers."
-      pattern:
-        metadata:
-          namespace: "!default"
+    - name: validate-namespace
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+      validate:
+        message: "Using 'default' namespace is not allowed."
+        pattern:
+          metadata:
+            namespace: "!default"
+    - name: validate-podcontroller-namespace
+      match:
+        any:
+          - resources:
+              kinds:
+                - DaemonSet
+                - Deployment
+                - Job
+                - StatefulSet
+      validate:
+        message: "Using 'default' namespace is not allowed for pod controllers."
+        pattern:
+          metadata:
+            namespace: "!default"
+  # yamllint enable rule:line-length
