@@ -23,6 +23,7 @@ spec:
     targetRevision: 8.18.0
     chart: kube-prometheus
     helm:
+      # yamllint disable rule:line-length
       values: |
         prometheus:
           resources:
@@ -46,6 +47,7 @@ spec:
         exporters:
           kube-state-metrics:
             enabled: true
+      # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring
