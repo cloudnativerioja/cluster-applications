@@ -21,6 +21,7 @@ spec:
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 2.34.0
     helm:
+      # yamllint disable rule:line-length
       values: |
         dashboard:
           # -- Deploy dashboard server
@@ -56,6 +57,7 @@ spec:
               - hosts: 
                   - rollouts.cloudnativerioja.com
                 secretName: rollouts-tls
+      # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
