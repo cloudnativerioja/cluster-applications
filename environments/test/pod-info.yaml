@@ -1,0 +1,50 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podinfo
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    chart: podinfo
+    repoURL: https://stefanprodan.github.io/podinfo
+    targetRevision: 6.5.4
+    helm:
+      releaseName: podinfo
+      values: |
+        ui:
+          color: "#4e99ff"
+          message: "Hola desde Cloud Native Rioja! 🤘"
+          logo: "https://docs.cloudnativerioja.com/recursos/assets/logo-black.svg"
+        ingress:
+          enabled: true
+          className: ""
+          additionalLabels: {}
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+            kubernetes.io/ingress.class: traefik
+            traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+            traefik.ingress.kubernetes.io/router.tls: "true"
+          hosts:
+            - host: hello.cloudnativerioja.com
+              paths:
+                - path: /
+                  pathType: ImplementationSpecific
+          tls:
+            - hosts:
+                - hello.cloudnativerioja.com
+              secretName: hello-tls
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: test
