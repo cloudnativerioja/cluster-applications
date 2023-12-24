@@ -22,6 +22,7 @@ spec:
     targetRevision: 6.5.4
     helm:
       releaseName: podinfo
+      # yamllint disable rule:line-length
       values: |
         ui:
           color: "#4e99ff"
@@ -45,6 +46,7 @@ spec:
             - hosts:
                 - hello.cloudnativerioja.com
               secretName: hello-tls
+      # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: test
