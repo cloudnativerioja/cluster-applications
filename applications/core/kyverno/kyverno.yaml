@@ -19,16 +19,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Replace=true
-    helm:
-      values: |
-        grafana:
-          enabled: true
-          configMapName: '{{ include "kyverno.fullname" . }}-grafana'
-          namespace: monitoring
-          annotations: {}
-          labels:
-            grafana_dashboard: "1"
-          grafanaDashboard:
-            create: true
-            matchLabels:
-              dashboards: "grafana"
