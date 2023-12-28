@@ -19,7 +19,7 @@ spec:
   source:
     chart: podinfo
     repoURL: https://stefanprodan.github.io/podinfo
-    targetRevision: 6.5.4
+    targetRevision: 6.5.3
     helm:
       releaseName: podinfo
       # yamllint disable rule:line-length

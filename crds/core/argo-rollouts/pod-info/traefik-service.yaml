@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: TraefikService
+metadata:
+  name: pod-info-service
+  namespace: test
+spec:
+  weighted:
+    services:
+      - name: podinfo
+        port: 9898
+      - name: podinfo-canary
+        port: 9898

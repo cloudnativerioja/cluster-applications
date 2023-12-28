@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: podinfo-rollouts
+  namespace: test
+spec:
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: podinfo
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: podinfo
+  replicas: 5
+  strategy:
+    canary:
+      canaryService: podinfo-canary
+      stableService: podinfo
+      trafficRouting:
+        traefik:
+          weightedTraefikServiceName: pod-info-service
+      steps:
+        - setWeight: 30
+        - pause: {}
+        - setWeight: 40
+        - pause: {duration: 10}
+        - setWeight: 60
+        - pause: {duration: 10}
+        - setWeight: 80
+        - pause: {duration: 10}
