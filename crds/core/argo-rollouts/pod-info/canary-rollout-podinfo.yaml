@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: podinfo-rollouts
+  namespace: test
+spec:
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: podinfo
+  # WorkloadRef holds a references to a workload that provides Pod template
+  # (e.g. Deployment). If used, then do not use Rollout template property.
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: podinfo
+  replicas: 5
+  strategy:
+    canary:
+      canaryService: podinfo-canary
+      stableService: podinfo
+      trafficRouting:
+        traefik:
+          weightedTraefikServiceName: pod-info-service # specify traefikService resource name that we have created before
+      steps:
+        - setWeight: 30
+        - pause: {}
+        - setWeight: 40
+        - pause: { duration: 10 }
+        - setWeight: 60
+        - pause: { duration: 10 }
+        - setWeight: 80
+        - pause: { duration: 10 }
