@@ -6,7 +6,7 @@ metadata:
 spec:
   weighted:
     services:
-      - name: podinfo # k8s service name that you need to create for stable application version
+      - name: podinfo
         port: 9898
-      - name: podinfo-canary # k8s service name that you need to create for new application version
+      - name: podinfo-canary
         port: 9898
