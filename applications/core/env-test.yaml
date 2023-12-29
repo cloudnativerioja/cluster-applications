@@ -26,4 +26,5 @@ spec:
         duration: 5s
         maxDuration: 3m0s
         factor: 2
-    syncOptions: []
+    syncOptions:
+      - ServerSideApply=true
