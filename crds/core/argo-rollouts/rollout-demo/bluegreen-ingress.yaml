@@ -18,7 +18,7 @@ spec:
                 name: bluegreen-demo
                 port:
                   name: http
-      tls:
-        - secretName: bluegreen-rollouts-tls
-          hosts:
-            - bluegreen.cloudnativerioja.com
+  tls:
+    - secretName: bluegreen-rollouts-tls
+      hosts:
+        - bluegreen.cloudnativerioja.com
