@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: bluegreen-demo
+  namespace: test
   labels:
     app: bluegreen-demo
 spec:
