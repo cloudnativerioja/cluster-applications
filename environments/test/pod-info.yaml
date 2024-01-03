@@ -16,6 +16,8 @@ spec:
         duration: 5s
         maxDuration: 3m0s
         factor: 2
+    syncOptions:
+      - ServerSideApply=true
   source:
     chart: podinfo
     repoURL: https://stefanprodan.github.io/podinfo

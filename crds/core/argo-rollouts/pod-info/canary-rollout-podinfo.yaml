@@ -12,7 +12,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: podinfo
-  replicas: 5
+  replicas: 3
   strategy:
     canary:
       canaryService: podinfo-canary
