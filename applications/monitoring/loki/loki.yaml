@@ -20,7 +20,7 @@ spec:
         factor: 2
   source:
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 2.9.11
+    targetRevision: 2.9.12
     chart: loki-stack
     helm:
       values: |

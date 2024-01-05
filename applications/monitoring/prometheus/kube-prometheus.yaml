@@ -20,7 +20,7 @@ spec:
         factor: 2
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 8.18.0
+    targetRevision: 8.22.8
     chart: kube-prometheus
     helm:
       # yamllint disable rule:line-length
