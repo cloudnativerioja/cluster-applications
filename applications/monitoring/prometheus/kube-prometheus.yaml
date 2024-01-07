@@ -42,6 +42,11 @@ spec:
                   # scheme defaults to 'http'.
                   static_configs:
                     - targets: ['kyverno-svc-metrics.kyverno.svc.cluster.local:8000']
+                - job_name: 'cluster-autoscaler'
+                  # metrics_path defaults to '/metrics'
+                  # scheme defaults to 'http'.
+                  static_configs:
+                    - targets: ['cluster-autoscaler.kube-system.svc.cluster.local:8085']
         blackboxExporter:
           enabled: false
         exporters:
