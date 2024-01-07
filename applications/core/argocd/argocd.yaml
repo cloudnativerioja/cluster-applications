@@ -39,6 +39,12 @@ spec:
                     clientSecret: $sso-secret:clientSecret
                     orgs:
                     - name: cloudnativerioja
+              staticClients:
+                - id: argo-workflows-sso
+                  name: Argo Workflow
+                  redirectURIs:
+                    - https://workflows.cloudnativerioja.com/oauth2/callback
+                  secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
           rbac:
             policy.default: role:readonly
             policy.csv: |
@@ -92,6 +98,13 @@ spec:
                   - argo.cloudnativerioja.com
                 secretName: tls-argo-cloudnativerioja-com
             https: false
+        dex:
+          env:
+            - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: sso-secret
+                  key: clientSecret
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
