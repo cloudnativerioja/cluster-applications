@@ -36,9 +36,12 @@ spec:
             - --v=4
             - --stderrthreshold=info
             - --cloud-provider=civo
-            - --nodes=1:5:workers
+            - --nodes=0:5:workers
             - --skip-nodes-with-local-storage=false
             - --skip-nodes-with-system-pods=false
+          ports:
+            - name: app
+              containerPort: 8085
           env:
             - name: CIVO_API_URL
               valueFrom:
