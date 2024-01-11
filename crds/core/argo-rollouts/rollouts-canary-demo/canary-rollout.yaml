@@ -4,7 +4,7 @@ metadata:
   name: canary-demo
   namespace: test
 spec:
-  replicas: 3
+  replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
@@ -33,10 +33,10 @@ spec:
         - setWeight: 10
         - pause: {}
         - setWeight: 20
-        - pause: {duration: 10}
+        - pause: { duration: 10 }
         - setWeight: 40
         - pause: {}
         - setWeight: 60
-        - pause: {duration: 10}
+        - pause: { duration: 10 }
         - setWeight: 80
-        - pause: {duration: 10}
+        - pause: { duration: 10 }
