@@ -1,6 +1,6 @@
 ---
-# K3S cluster monitoring
-# https://grafana.com/grafana/dashboards/15282-k8s-rke-cluster-monitoring/
+# Cluster-autoscaler monitoring
+# https://grafana.com/grafana/dashboards/3831-autoscaler/?tab=revisions
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
