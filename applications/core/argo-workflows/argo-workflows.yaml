@@ -1,0 +1,95 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-workflows
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+  source:
+    chart: argo-workflows
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 0.40.4
+    helm:
+      # yamllint disable rule:line-length
+      values: |
+        crds:
+          # -- Keep CRDs on chart uninstall
+          keep: false
+        workflow:
+          serviceAccount:
+            create: true
+            name: "argo-workflows"
+          rbac:
+            create: true
+        controller:
+          workflowNamespaces:
+            - workflow-runners
+            - test
+          tolerations:
+            - key: "runners"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+        server:
+          tolerations:
+            - key: "runners"
+              operator: "Equal"
+              value: "true"
+              effect: "NoSchedule"
+          authModes: ["sso"]
+          ingress:
+            # -- Enable dashboard ingress support
+            enabled: true
+            # -- Dashboard ingress annotations
+            annotations:
+              cert-manager.io/cluster-issuer: "letsencrypt-prod"
+              kubernetes.io/ingress.class: traefik
+              traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+              traefik.ingress.kubernetes.io/router.tls: "true"
+            # -- Dashboard ingress labels
+            labels: {}
+            # -- Dashboard ingress class name
+            ingressClassName: ""
+
+            # -- Dashboard ingress hosts
+            ## Argo Workflows Dashboard Ingress.
+            ## Hostnames must be provided if Ingress is enabled.
+            ## Secrets must be manually created in the namespace
+            hosts:
+              - workflows.cloudnativerioja.com
+            # -- Dashboard ingress paths
+            paths:
+              - /
+            # -- Dashboard ingress path type
+            pathType: Prefix
+            tls:
+              - hosts:
+                  - workflows.cloudnativerioja.com
+                secretName: workflows-tls
+          # SSO github configuration with github in argo workflows
+          sso:
+            issuer: https://argo.cloudnativerioja.com/api/dex
+            # sessionExpiry defines how long your login is valid for in hours. (optional, default: 10h)
+            sessionExpiry: 240h
+            clientId:
+              name: sso-secret
+              key: clientID
+            clientSecret:
+              name: sso-secret
+              key: clientSecret
+            redirectUrl: https://workflows.cloudnativerioja/oauth2/callback
+      # yamllint enable rule:line-length
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argocd
