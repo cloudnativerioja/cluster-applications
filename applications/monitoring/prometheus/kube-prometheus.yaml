@@ -25,6 +25,12 @@ spec:
     helm:
       # yamllint disable rule:line-length
       values: |
+        operator:
+          tolerations:
+            - key: "high-spec"
+              operator: "Exists"
+              value: "true"
+              effect: "NoSchedule"
         prometheus:
           resources:
             limits:
@@ -32,6 +38,11 @@ spec:
             requests:
               cpu: 256m
               memory: 1Gi
+          tolerations:
+            - key: "high-spec"
+              operator: "Exists"
+              value: "true"
+              effect: "NoSchedule"
           additionalScrapeConfigs:
             enabled: true
             type: internal
