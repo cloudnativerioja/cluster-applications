@@ -19,10 +19,16 @@ spec:
   source:
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 5.46.6
+    targetRevision: 6.1.0
     helm:
       releaseName: argocd
       values: |
+        global:
+          tolerations:
+            - key: "high-spec"
+              operator: "Exists"
+              value: "true"
+              effect: "NoSchedule"
         configs:
           cm:
             url: https://argo.cloudnativerioja.com
