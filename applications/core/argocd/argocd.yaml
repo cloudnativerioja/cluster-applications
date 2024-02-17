@@ -23,6 +23,12 @@ spec:
     helm:
       releaseName: argocd
       values: |
+        global:
+          tolerations:
+            - key: "high-spec"
+              operator: "Exists"
+              value: "true"
+              effect: "NoSchedule"
         configs:
           cm:
             url: https://argo.cloudnativerioja.com
