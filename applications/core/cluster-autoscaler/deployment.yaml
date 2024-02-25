@@ -20,11 +20,6 @@ spec:
         prometheus.io/port: "8085"
     spec:
       serviceAccountName: cluster-autoscaler
-      tolerations:
-        - key: "high-spec"
-          operator: "Exists"
-          value: "true"
-          effect: "NoSchedule"
       containers:
         - image: registry.k8s.io/autoscaling/cluster-autoscaler:v1.29.0
           name: cluster-autoscaler
