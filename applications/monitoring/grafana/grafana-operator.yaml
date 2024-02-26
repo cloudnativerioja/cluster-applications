@@ -23,18 +23,7 @@ spec:
     helm:
       # yamllint disable rule:line-length
       values: |
-        operator:
-          tolerations:
-            - key: "high-spec"
-              operator: "Exists"
-              value: "true"
-              effect: "NoSchedule"
         grafana:
-          tolerations:
-            - key: "high-spec"
-              operator: "Exists"
-              value: "true"
-              effect: "NoSchedule"
           envFrom:
             - secretRef:
                 name: github-sso-secret
