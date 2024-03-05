@@ -77,7 +77,6 @@ spec:
             ingressClassName: ""
             hosts:
               - argo.cloudnativerioja.com
-              # - argocd.example.com
             # -- List of ingress paths
             paths:
               - /
@@ -92,8 +91,7 @@ spec:
                     name: argocd-server
                     port:
                       number: 443
-            # -- Ingress TLS configuration
-            tls:
+            extraTls:
               - hosts:
                   - argo.cloudnativerioja.com
                 secretName: tls-argo-cloudnativerioja-com
