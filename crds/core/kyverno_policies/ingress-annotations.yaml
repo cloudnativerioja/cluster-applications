@@ -1,19 +1,19 @@
-apiVersion: kyverno.io/v1
-kind: ClusterPolicy
-metadata:
-  name: set-default-ingress-annotations
-spec:
-  rules:
-    - name: set-default-ingress-annotations
-      match:
-        resources:
-          kinds:
-            - Ingress
-      mutate:
-        patchStrategicMerge:
-          metadata:
-            annotations:
-              +(cert-manager.io/cluster-issuer): "letsencrypt-prod"
-              +(kubernetes.io/ingress.class): traefik
-              +(traefik.ingress.kubernetes.io/router.entrypoints): web,websecure
-              +(traefik.ingress.kubernetes.io/router.tls): "true"
+# apiVersion: kyverno.io/v1
+# kind: ClusterPolicy
+# metadata:
+#   name: set-default-ingress-annotations
+# spec:
+#   rules:
+#     - name: set-default-ingress-annotations
+#       match:
+#         resources:
+#           kinds:
+#             - Ingress
+#       mutate:
+#         patchStrategicMerge:
+#           metadata:
+#             annotations:
+#               +(cert-manager.io/cluster-issuer): "letsencrypt-prod"
+#               +(kubernetes.io/ingress.class): traefik
+#               +(traefik.ingress.kubernetes.io/router.entrypoints): web,websecure
+#               +(traefik.ingress.kubernetes.io/router.tls): "true"
