@@ -16,6 +16,7 @@ spec:
         duration: 5s
         maxDuration: 3m0s
         factor: 2
+  # yamllint disable rule:line-length
   source:
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
@@ -94,6 +95,7 @@ spec:
                 secretKeyRef:
                   name: sso-secret
                   key: clientSecret
+  # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
