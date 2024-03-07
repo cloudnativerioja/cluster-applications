@@ -16,6 +16,7 @@ spec:
         duration: 5s
         maxDuration: 3m0s
         factor: 2
+  # yamllint disable rule:line-length
   source:
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
@@ -75,27 +76,18 @@ spec:
             labels: {}
             # -- Defines which ingress controller will implement the resource
             ingressClassName: ""
-            hosts:
-              - argo.cloudnativerioja.com
-            # -- List of ingress paths
-            paths:
-              - /
-            # -- Ingress path type.
+            hostname: "argo.cloudnativerioja.com"
+
+            # -- The path to Argo CD server
+            path: /
+
+            # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
             pathType: Prefix
-            # -- Additional ingress paths
-            extraPaths:
-              - path: /
-                pathType: Prefix
-                backend:
-                  service:
-                    name: argocd-server
-                    port:
-                      number: 443
-            extraTls:
-              - hosts:
-                  - argo.cloudnativerioja.com
-                secretName: tls-argo-cloudnativerioja-com
-            https: false
+
+            # -- Enable TLS configuration for the hostname defined at `server.ingress.hostname`
+            ## TLS certificate will be retrieved from a TLS secret `argocd-server-tls`
+            ## You can create this secret via `certificate` or `certificateSecret` option
+            tls: true
         dex:
           env:
             - name: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
@@ -103,6 +95,7 @@ spec:
                 secretKeyRef:
                   name: sso-secret
                   key: clientSecret
+  # yamllint enable rule:line-length
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd
