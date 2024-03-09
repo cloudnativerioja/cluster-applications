@@ -25,10 +25,10 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const output = `#### Kubescape 🖌\`${{ steps.kubescape.outputs.stdout }}\``;
+            const output = `#### Kubescape report 🖌\`${{ steps.kubescape.outputs.stdout }}\``;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: output
+              body: `## Kubescape report \n` + output
             })
