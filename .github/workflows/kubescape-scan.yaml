@@ -25,7 +25,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const output = ``${{ steps.kubescape.outputs.stdout }}``;
+            const output = ${{ steps.kubescape.outputs.stdout }};
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
