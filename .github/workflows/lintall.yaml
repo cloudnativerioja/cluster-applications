@@ -17,10 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: kubescape/github-action@main
-        continue-on-error: true
         with:
           format: sarif
           outputFile: results
+          severityThreshold: critical
       - name: Upload Kubescape scan results to Github Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
