@@ -5,6 +5,9 @@ metadata:
   name: cilium-agent-dashboard
   namespace: monitoring
 spec:
+  datasources:
+    - inputName: "DS_PROMETHEUS"
+      datasourceName: "prometheus"
   instanceSelector:
     matchLabels:
       app.kubernetes.io/name: grafana-operator
